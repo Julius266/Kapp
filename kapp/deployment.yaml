@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k-express
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: k-express
+  template:
+    metadata:
+      labels:
+        app: k-express
+    spec:
+      containers:
+      - name: k-express
+        image: tu-usuario/mi-aplicacion-kubernetes-express:latest
+        ports:
+        - containerPort: 3000
